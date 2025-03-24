@@ -13,7 +13,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9'  # Ganti dengan versi Python yang Anda inginkan
+          python-version: '3.9'  # Bisa diganti sesuai kebutuhan
 
       - name: Install dependencies
         run: pip install pycountry
@@ -28,7 +28,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://${GH_TOKEN}@github.com/donghuaaa/testing.git
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/donghuaaa/testing.git
           git add result.json
           git commit -m "Update result.json" || echo "No changes to commit"
-          git push origin main  # Ganti 'main' dengan branch yang Anda gunakan jika berbeda
+          git push origin main || echo "Push failed"
